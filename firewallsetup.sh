@@ -13,7 +13,7 @@ echo Please, enter extra port
 read port
 ufw allow $port
 echo $port added!
-sudo ufw enable
+sudo ufw enable -y
 echo ------------------------
 echo setup firewall done!
 echo ------------------------
