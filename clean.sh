@@ -8,7 +8,6 @@ if [ -f $setup ]; then
     rm $setup
     wget https://raw.githubusercontent.com/maestroi/Hardeningdebian/master/setup.sh
     chmod 755 setup.sh
-    ./setup.sh
 else 
     echo "$setup does not exist"
 fi
