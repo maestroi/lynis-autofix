@@ -7,7 +7,7 @@ setup=setup.sh
 if [ -f $setup ]; then
     echo "$setup found!"
     rm $setup
-    wget –quiet https://raw.githubusercontent.com/maestroi/Hardeningdebian/master/setup.sh
+    wget –q https://raw.githubusercontent.com/maestroi/Hardeningdebian/master/setup.sh > NUL
     chmod 755 setup.sh
     echo "$setup new version downloaded!"
 else 
