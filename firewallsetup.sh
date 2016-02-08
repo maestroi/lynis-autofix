@@ -11,7 +11,7 @@ sudo ufw allow 443/tcp
 echo port 443 SSL added
 echo Please, enter extra port
 read port
-ufw allow $port
+sudo ufw allow $port
 echo $port added!
 sudo ufw enable -y
 echo ------------------------
