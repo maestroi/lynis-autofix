@@ -42,14 +42,12 @@ clear
 echo ------------------------
 echo install anti rootkit
 echo ------------------------
-
 if which rkhunter >/dev/null; then
-    echo exists
+    echo already installed!
 else
     sudo apt-get install rkhunter chkrootkit -y
     echo installed!
 fi
-
 echo ------------------------
 echo anti rootkit script done!
 echo ------------------------
