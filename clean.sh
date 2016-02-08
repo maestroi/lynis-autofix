@@ -1,4 +1,5 @@
 #!/bin/bash
+@echo off
 echo ------------------------
 echo clean script by meastro
 echo ------------------------
