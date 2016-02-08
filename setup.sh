@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 echo ------------------------
 echo Setup script by meastro
 echo ------------------------
