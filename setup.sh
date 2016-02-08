@@ -29,13 +29,11 @@ clear
 echo ------------------------
 echo update ubuntu
 echo ------------------------
-
 update=1
 if [ $update -eq 1 ]; then
     sudo apt-get update && sudo apt-get upgrade -y
     update=2
 fi
-
 echo ------------------------
 echo update finished
 echo ------------------------
