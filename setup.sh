@@ -22,7 +22,7 @@ fi
 echo ------------------------
 echo done checking clean script!
 echo ------------------------
-sleep(2)
+sleep 2
 clear
 echo ------------------------
 echo update ubuntu
