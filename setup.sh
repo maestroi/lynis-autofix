@@ -37,3 +37,19 @@ fi
 echo ------------------------
 echo update finished
 echo ------------------------
+sleep 2
+clear
+echo ------------------------
+echo install anti rootkit
+echo ------------------------
+
+if which rkhunter >/dev/null; then
+    echo exists
+else
+    sudo apt-get install rkhunter chkrootkit -y
+    echo installed!
+fi
+
+echo ------------------------
+echo anti rootkit script done!
+echo ------------------------
