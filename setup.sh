@@ -7,10 +7,11 @@ echo
 clean=clean.sh
 firewall=firewallsetup.sh
 echo ------------------------
-echo checking for clean script!
+echo Checking for clean script!
 echo ------------------------
 if [ -f $clean ]; then
     echo "$clean found!"
+    echo "$clean updating.."
     rm $clean
     wget -q https://raw.githubusercontent.com/maestroi/Hardeningdebian/master/clean.sh
     chmod 755 $clean
@@ -22,12 +23,12 @@ else
     echo "$clean new version downloaded!"
 fi
 echo ------------------------
-echo done checking clean script!
+echo Done checking clean script!
 echo ------------------------
 sleep 2
 clear
 echo ------------------------
-echo update ubuntu
+echo Update and upgrade OS
 echo ------------------------
 update=1
 if [ $update -eq 1 ]; then
@@ -35,12 +36,12 @@ if [ $update -eq 1 ]; then
     update=2
 fi
 echo ------------------------
-echo update finished
+echo Update and upgrade Finished!
 echo ------------------------
 sleep 2
 clear
 echo ------------------------
-echo install anti rootkit
+echo Install anti rootkit
 echo ------------------------
 if which rkhunter >/dev/null; then
     echo already installed!
@@ -49,12 +50,12 @@ else
     echo installed!
 fi
 echo ------------------------
-echo anti rootkit script done!
+echo Anti rootkit installed!
 echo ------------------------
 sleep 2
 clear
 echo ------------------------
-echo install firewall
+echo Install and setup firewall
 echo ------------------------
 if [ -f $firewall ]; then
     echo "$firewall found!"
@@ -71,7 +72,7 @@ else
     ./$firewall
 fi
 echo ------------------------
-echo firewall done!
+echo Firewall installation and setup done!
 echo ------------------------
 
 
