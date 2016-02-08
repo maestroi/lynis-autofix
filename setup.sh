@@ -2,7 +2,7 @@
 echo ------------------------
 echo Setup script by meastro
 echo ------------------------
-setup = setup.sh
+setup=setup.sh
 if [ ! -f $setup ]; then
     echo "File not found!"
 fi
