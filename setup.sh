@@ -64,13 +64,13 @@ if [ -f $firewall ]; then
     wget -q https://raw.githubusercontent.com/maestroi/Hardeningdebian/master/firewallsetup.sh
     chmod 755 $firewall
     echo "$firewall newest version downloaded!"
-    ./firewallsetup.sh
+    ./$firewall
 else 
     echo "$firewall does not exist"
     wget -q https://raw.githubusercontent.com/maestroi/Hardeningdebian/master/firewallsetup.sh
     chmod 755 $firewall
     echo "$firewall new version downloaded!"
-    ./firewallsetup.sh
+    ./$firewall
 fi
 echo ------------------------
 echo firewall done!
