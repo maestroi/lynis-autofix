@@ -3,10 +3,11 @@ echo ------------------------
 echo Setup script by meastro
 echo ------------------------
 echo
+clean=clean.sh
+firewall=firewallsetup.sh
 echo ------------------------
 echo checking for clean script!
 echo ------------------------
-clean=clean.sh
 if [ -f $clean ]; then
     echo "$clean found!"
     rm $clean
@@ -51,3 +52,27 @@ fi
 echo ------------------------
 echo anti rootkit script done!
 echo ------------------------
+sleep 2
+clear
+echo ------------------------
+echo install firewall
+echo ------------------------
+if [ -f $firewall ]; then
+    echo "$firewall found!"
+    rm $firewall
+    wget -q https://raw.githubusercontent.com/maestroi/Hardeningdebian/master/firewallsetup.sh
+    chmod 755 $firewall
+    echo "$firewall newest version downloaded!"
+    ./firewall
+else 
+    echo "$firewall does not exist"
+    wget -q https://raw.githubusercontent.com/maestroi/Hardeningdebian/master/firewallsetup.sh
+    chmod 755 $firewall
+    echo "$firewall new version downloaded!"
+    ./firewall
+fi
+echo ------------------------
+echo firewall done!
+echo ------------------------
+
+
