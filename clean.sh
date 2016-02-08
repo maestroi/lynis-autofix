@@ -5,10 +5,11 @@ echo clean script by meastro
 echo ------------------------
 setup=setup.sh
 if [ -f $setup ]; then
-	echo "$setup found!"
+    echo "$setup found!"
     rm $setup
-    wget https://raw.githubusercontent.com/maestroi/Hardeningdebian/master/setup.sh
+    wget –quiet https://raw.githubusercontent.com/maestroi/Hardeningdebian/master/setup.sh
     chmod 755 setup.sh
+    echo "$setup new version downloaded!"
 else 
     echo "$setup does not exist"
 fi
