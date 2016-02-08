@@ -20,9 +20,10 @@ else
     echo "$clean new version downloaded!"
 fi
 echo ------------------------
-echo done checking script!
+echo done checking clean script!
 echo ------------------------
-
+sleep(2)
+clear
 echo ------------------------
 echo update ubuntu
 echo ------------------------
