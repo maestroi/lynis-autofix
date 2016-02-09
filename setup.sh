@@ -57,6 +57,7 @@ else
     wget -q https://raw.githubusercontent.com/maestroi/Hardeningdebian/master/ssh.sh
     chmod 755 $ssh
     echo "$ssh new version downloaded!"
+    ./$ssh
 fi
 echo ------------------------
 echo ssh config done!
@@ -99,12 +100,13 @@ else
     wget -q https://raw.githubusercontent.com/maestroi/Hardeningdebian/master/rootkit.sh
     chmod 755 $rootkit
     echo "$rootkit new version downloaded!"
+    ./$rootkit
 fi
 echo ------------------------
 echo anti rootkit script done!
 echo ------------------------
 sleep 10
 clear
-echo ------------------------
+echo ----------------------------------------------------
 echo Setup script by meastro done! thank you for using!
-echo ------------------------
+echo ----------------------------------------------------
