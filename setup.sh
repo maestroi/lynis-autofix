@@ -33,7 +33,7 @@ echo update ubuntu
 echo ------------------------
 update=1
 if [ $update -eq 1 ]; then
-    sudo apt-get update && sudo apt-get upgrade -y
+    sudo apt-get update && sudo apt-get upgrade && sudo apt-get autoremove && sudo apt-get autoclean -y
     update=2
 fi
 echo ------------------------
