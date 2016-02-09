@@ -5,7 +5,9 @@ echo Setup script by meastro
 echo ------------------------
 echo
 clean=clean.sh
+ssh=ssh.sh
 firewall=firewallsetup.sh
+rootkit=rootkit.sh
 echo ------------------------
 echo checking for clean script!
 echo ------------------------
@@ -29,29 +31,33 @@ clear
 echo ------------------------
 echo update ubuntu
 echo ------------------------
-
 update=1
 if [ $update -eq 1 ]; then
     sudo apt-get update && sudo apt-get upgrade -y
     update=2
 fi
-
 echo ------------------------
 echo update finished
 echo ------------------------
 sleep 2
 clear
 echo ------------------------
-echo install anti rootkit
+echo ssh config
 echo ------------------------
-if which rkhunter >/dev/null; then
-    echo already installed!
-else
-    sudo apt-get install rkhunter chkrootkit -y
-    echo installed!
+if [ -f $ssh ]; then
+    echo "$ssh found!"
+    rm $ssh
+    wget -q https://raw.githubusercontent.com/maestroi/Hardeningdebian/master/ssh.sh
+    chmod 755 $ssh
+    echo "$ssh newest version downloaded!"
+else 
+    echo "$ssh does not exist"
+    wget -q https://raw.githubusercontent.com/maestroi/Hardeningdebian/master/ssh.sh
+    chmod 755 $ssh
+    echo "$ssh new version downloaded!"
 fi
 echo ------------------------
-echo anti rootkit script done!
+echo ssh config done!
 echo ------------------------
 sleep 2
 clear
@@ -75,5 +81,26 @@ fi
 echo ------------------------
 echo firewall done!
 echo ------------------------
-
+sleep 2
+clear
+echo ------------------------
+echo install anti rootkit
+echo ------------------------
+if [ -f $rootkit ]; then
+    echo "$rootkit found!"
+    rm $rootkit
+    wget -q https://raw.githubusercontent.com/maestroi/Hardeningdebian/master/rootkit.sh
+    chmod 755 $rootkit
+    echo "$rootkit newest version downloaded!"
+else 
+    echo "$rootkit does not exist"
+    wget -q https://raw.githubusercontent.com/maestroi/Hardeningdebian/master/rootkit.sh
+    chmod 755 $rootkit
+    echo "$rootkit new version downloaded!"
+fi
+echo ------------------------
+echo anti rootkit script done!
+echo ------------------------
+sleep 2
+clear
 
