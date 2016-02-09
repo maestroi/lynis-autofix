@@ -43,11 +43,7 @@ echo ------------------------
 sleep 2
 clear
 echo ------------------------
-<<<<<<< HEAD
 echo ssh config
-=======
-echo Install anti rootkit
->>>>>>> origin/master
 echo ------------------------
 if [ -f $ssh ]; then
     echo "$ssh found!"
@@ -62,11 +58,7 @@ else
     echo "$ssh new version downloaded!"
 fi
 echo ------------------------
-<<<<<<< HEAD
 echo ssh config done!
-=======
-echo Anti rootkit installed!
->>>>>>> origin/master
 echo ------------------------
 sleep 2
 clear
