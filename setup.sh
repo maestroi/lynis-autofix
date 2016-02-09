@@ -27,20 +27,21 @@ fi
 echo ------------------------
 echo Done checking clean script!
 echo ------------------------
-sleep 2
+sleep 10
 clear
 echo ------------------------
 echo Update and upgrade OS
 echo ------------------------
 update=1
 if [ $update -eq 1 ]; then
-    sudo apt-get update && sudo apt-get upgrade && sudo apt-get autoremove && sudo apt-get autoclean -y
+    sudo apt-get update && sudo apt-get upgrade -y
+    sudo apt-get autoremove && sudo apt-get autoclean -y
     update=2
 fi
 echo ------------------------
 echo Update and upgrade Finished!
 echo ------------------------
-sleep 2
+sleep 10
 clear
 echo ------------------------
 echo ssh config
@@ -60,7 +61,7 @@ fi
 echo ------------------------
 echo ssh config done!
 echo ------------------------
-sleep 2
+sleep 10
 clear
 echo ------------------------
 echo Install and setup firewall
@@ -82,7 +83,7 @@ fi
 echo ------------------------
 echo Firewall installation and setup done!
 echo ------------------------
-sleep 2
+sleep 10
 clear
 echo ------------------------
 echo install anti rootkit
@@ -102,6 +103,8 @@ fi
 echo ------------------------
 echo anti rootkit script done!
 echo ------------------------
-sleep 2
+sleep 10
 clear
-
+echo ------------------------
+echo Setup script by meastro done! thank you for using!
+echo ------------------------
