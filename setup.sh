@@ -52,6 +52,7 @@ if [ -f $ssh ]; then
     wget -q https://raw.githubusercontent.com/maestroi/Hardeningdebian/master/ssh.sh
     chmod 755 $ssh
     echo "$ssh newest version downloaded!"
+    ./$ssh
 else 
     echo "$ssh does not exist"
     wget -q https://raw.githubusercontent.com/maestroi/Hardeningdebian/master/ssh.sh
@@ -95,6 +96,7 @@ if [ -f $rootkit ]; then
     wget -q https://raw.githubusercontent.com/maestroi/Hardeningdebian/master/rootkit.sh
     chmod 755 $rootkit
     echo "$rootkit newest version downloaded!"
+    ./$rootkit
 else 
     echo "$rootkit does not exist"
     wget -q https://raw.githubusercontent.com/maestroi/Hardeningdebian/master/rootkit.sh
