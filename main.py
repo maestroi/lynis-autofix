@@ -75,8 +75,7 @@ def cleanlog():
 
 def lynisupdate():
     os.system("cd /usr/local")
-    os.system("git clone https://github.com/CISOfy/lynis")
-    os.system("cd lynis")
+    os.system("sudo git clone https://github.com/CISOfy/lynis")
 
 def main():
     lynisupdate()
