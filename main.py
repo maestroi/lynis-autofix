@@ -76,7 +76,24 @@ def cleanlog():
 
 def lynisupdate():
     os.system("cd /usr/local")
-    os.system("sudo git clone https://github.com/CISOfy/lynis")
+    os.system("sudo git clone https://github.com/CISOfy/lynis.git")
+
+def firewall():
+    try:
+        os.system("sudo apt-get install ufw")
+        logging.info("installed UFW!")
+    except:
+        logging.info("Ufw already installed!")
+    try:
+        os.system("sudo ufw allow ssh")
+        logging.info("Allowed SSH!")
+    except:
+        logging.info("SSH already allowed")
+    try:
+        os.system("sudo ufw enable")
+        logging.info("UFW Enabled")
+    except:
+        logging.info("UFW Already enabled!")
 
 def main():
     logging.info("Welcome to Hardening")
