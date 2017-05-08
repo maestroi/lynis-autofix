@@ -98,6 +98,7 @@ def firewall():
 def main():
     logging.info("Welcome to Hardening")
     logging.info("Running on %s version %s" %(platform.system(),platform.release()))
+    logging.info("Testing..")
     lynisupdate()
     tools()
     banner()
