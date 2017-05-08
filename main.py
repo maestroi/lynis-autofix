@@ -1,6 +1,7 @@
 import os
 import sys
 import logging
+import platform
 
 ## Logging stuff
 logging.basicConfig(filename='hardening.log' ,format='%(asctime)s - %(name)s - %(levelname)s | %(message)s |', stream=sys.stdout, level=logging.INFO)
@@ -78,6 +79,8 @@ def lynisupdate():
     os.system("sudo git clone https://github.com/CISOfy/lynis")
 
 def main():
+    logging.info("Welcome to Hardening")
+    logging.info("Running on %s version %s" %(platform.system(),platform.release()))
     lynisupdate()
     tools()
     banner()
