@@ -34,7 +34,7 @@ def banner():
 
 def tools():
     try:
-        os.system('sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade')
+        os.system('sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y')
         logging.info('System updated')
     except:
         logging.critical('Could not update!')
