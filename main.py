@@ -81,3 +81,10 @@ def lynisupdate():
 def main():
     lynisupdate()
     tools()
+    banner()
+    hardenssh()
+    cleanlog()
+
+if __name__ == "__main__":
+    # execute only if run as a script
+    main()
