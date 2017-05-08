@@ -13,7 +13,7 @@ logging.getLogger('').addHandler(console)
 def hardenssh():
     with open("/etc/ssh/sshd_config", "a") as myfile:
         myfile.write("ClientAliveCountMax 2 \n Compression no\n MaxAuthTries 2 \nMaxSessions 2 \n TCPKeepAlive no \nUsePrivilegeSeparation SANDBOX \n AllowAgentForwarding no \n Banner /etc/issue.net")
-        os.system(command='sudo service ssh restart')
+        os.system('sudo service ssh restart')
     logging.info('SSHD |Added SSH config hardening')
 
 def banner():
@@ -34,32 +34,32 @@ def banner():
 
 def tools():
     try:
-        os.system(command='sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade')
+        os.system('sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade')
         logging.info('System updated')
     except:
         logging.critical('Could not update!')
     try:
-        os.system(command='sudo apt-get install gi')
+        os.system('sudo apt-get install gi')
         logging.info('Git installed')
     except:
         logging.critical('Could not install git!')
     try:
-        os.system(command='sudo apt-get install AIDE -y')
+        os.system('sudo apt-get install AIDE -y')
         logging.info('AIDE |Aide is installed! integrety')
     except:
         logging.critical('AIDE | could not install AIDE already installed?')
     try:
-        os.system(command='sudo apt-get install acct -y')
+        os.system('sudo apt-get install acct -y')
         logging.info('[FINT-4350] |ACCT is installed! integrety')
     except:
         logging.critical('[FINT-4350] | could not install ACCT already installed?')
     try:
-        os.system(command='sudo apt-get install auditd -y')
+        os.system('sudo apt-get install auditd -y')
         logging.info('[ACCT-9628] | Enable auditd to collect audit information ')
     except:
         logging.critical('[ACCT-9628] | Could not install auditd!')
     try:
-        os.system(command='sudo apt-get install rkhunter chkrootkit -y')
+        os.system('sudo apt-get install rkhunter chkrootkit -y')
         logging.info('[ACCT-9628] | Anti maleware ')
     except:
         logging.critical('[ACCT-9628] | Could not install  Anti maleware!')
