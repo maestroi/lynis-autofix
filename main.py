@@ -2,7 +2,7 @@ import os
 import sys
 import logging
 import platform
-import errno
+import time
 
 ## Logging stuff
 logging.basicConfig(filename='hardening.log' ,format='%(asctime)s - %(name)s - %(levelname)s | %(message)s |', stream=sys.stdout, level=logging.INFO)
@@ -68,46 +68,55 @@ def tools():
         logging.info('System updated')
     except:
         logging.critical('Could not update!')
+    time.sleep(2)
     try:
         os.system('sudo apt-get install git')
         logging.info('Git installed')
     except:
         logging.critical('Could not install git!')
+    time.sleep(2)
     try:
         os.system('sudo apt-get install AIDE -y')
         logging.info('AIDE |Aide is installed! integrety')
     except:
         logging.critical('AIDE | could not install AIDE already installed?')
+    time.sleep(2)
     try:
         os.system('sudo apt-get install acct -y')
         logging.info('[FINT-4350] |ACCT is installed! integrety')
     except:
         logging.critical('[FINT-4350] | could not install ACCT already installed?')
+    time.sleep(2)
     try:
         os.system('sudo apt-get install auditd -y')
         logging.info('[ACCT-9628] | Enable auditd to collect audit information ')
     except:
         logging.critical('[ACCT-9628] | Could not install auditd!')
+    time.sleep(2)
     try:
         os.system('sudo apt-get install rkhunter chkrootkit -y')
         logging.info('[ACCT-9628] | Anti maleware ')
     except:
         logging.critical('[ACCT-9628] | Could not install  Anti maleware!')
+    time.sleep(2)
     try:
         os.system('sudo apt-get install libpam-cracklib -y')
         logging.info('[AUTH-9262] | Cracklib ')
     except:
         logging.critical('[AUTH-9262] | Could not install Crackliv!')
+    time.sleep(2)
     try:
         os.system('sudo apt-get install sysstat -y')
         logging.info('[ACCT-9626] | Sysstat accounting data')
     except:
         logging.critical('[ACCT-9626] | Sysstat accounting data not installed!')
+    time.sleep(2)
     try:
         os.system('sudo apt-get install arpwatch -y')
         logging.info('NETW-3032 |ARP is installed! integrety')
     except:
         logging.critical('NETW-3032 | could not install ARP already installed?')
+    time.sleep(2)
     try:
         os.system('sudo apt-get install debsums -y')
         logging.info('NETW-3032 |ARP is installed! integrety')
