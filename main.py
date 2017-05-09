@@ -64,6 +64,7 @@ def banner():
 
 def tools():
     try:
+        logging.info('starting: system updated')
         os.system('sudo apt-get update -y > /dev/null 2>&1 && sudo apt-get upgrade -y > /dev/null 2>&1 && sudo apt-get dist-upgrade -y > /dev/null 2>&1')
         logging.info('System updated')
     except:
@@ -76,49 +77,49 @@ def tools():
         logging.critical('Could not install git!')
     time.sleep(2)
     try:
-        os.system('sudo apt-get install AIDE -y')
+        os.system('sudo apt-get install AIDE -y /dev/null 2>&1')
         logging.info('AIDE |Aide is installed! integrety')
     except:
         logging.critical('AIDE | could not install AIDE already installed?')
     time.sleep(2)
     try:
-        os.system('sudo apt-get install acct -y')
+        os.system('sudo apt-get install acct -y /dev/null 2>&1')
         logging.info('[FINT-4350] |ACCT is installed! integrety')
     except:
         logging.critical('[FINT-4350] | could not install ACCT already installed?')
     time.sleep(2)
     try:
-        os.system('sudo apt-get install auditd -y')
+        os.system('sudo apt-get install auditd -y /dev/null 2>&1')
         logging.info('[ACCT-9628] | Enable auditd to collect audit information ')
     except:
         logging.critical('[ACCT-9628] | Could not install auditd!')
     time.sleep(2)
     try:
-        os.system('sudo apt-get install rkhunter chkrootkit -y')
+        os.system('sudo apt-get install rkhunter chkrootkit -y /dev/null 2>&1')
         logging.info('[ACCT-9628] | Anti maleware ')
     except:
         logging.critical('[ACCT-9628] | Could not install  Anti maleware!')
     time.sleep(2)
     try:
-        os.system('sudo apt-get install libpam-cracklib -y')
+        os.system('sudo apt-get install libpam-cracklib -y /dev/null 2>&1')
         logging.info('[AUTH-9262] | Cracklib ')
     except:
         logging.critical('[AUTH-9262] | Could not install Crackliv!')
     time.sleep(2)
     try:
-        os.system('sudo apt-get install sysstat -y')
+        os.system('sudo apt-get install sysstat -y /dev/null 2>&1')
         logging.info('[ACCT-9626] | Sysstat accounting data')
     except:
         logging.critical('[ACCT-9626] | Sysstat accounting data not installed!')
     time.sleep(2)
     try:
-        os.system('sudo apt-get install arpwatch -y')
+        os.system('sudo apt-get install arpwatch -y /dev/null 2>&1')
         logging.info('NETW-3032 |ARP is installed! integrety')
     except:
         logging.critical('NETW-3032 | could not install ARP already installed?')
     time.sleep(2)
     try:
-        os.system('sudo apt-get install debsums -y')
+        os.system('sudo apt-get install debsums -y /dev/null 2>&1')
         logging.info('NETW-3032 |ARP is installed! integrety')
     except:
         logging.critical('NETW-3032 | could not install ARP already installed')
