@@ -157,10 +157,8 @@ def main():
 
 if __name__ == "__main__":
     # execute only if run as a script
-    try:
-        os.rename('/etc/foo', '/etc/bar')
-    except IOError as e:
-        if (e[0] == errno.EPERM):
-            print >> sys.stderr, "You need root permissions to do this!"
-            sys.exit(1)
+    user = os.getenv("SUDO_USER")
+    if user is None:
+        print("This program need 'sudo'")
+        exit()
     main()
