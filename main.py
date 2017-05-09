@@ -64,7 +64,7 @@ def banner():
 
 def tools():
     try:
-        os.system('sudo apt-get update -y > /dev/null 2>&1 && sudo apt-get upgrade -y > /dev/null 2>&1 && sudo apt-get dist-upgrade -y >/dev/null 2>&1')
+        os.system('sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y')
         logging.info('System updated')
     except:
         logging.critical('Could not update!')
@@ -125,8 +125,11 @@ def cleanlog():
         logging.critical('Could not remove temp files')
 
 def lynisupdate():
-    os.system("cd /usr/local")
-    os.system("sudo git clone https://github.com/CISOfy/lynis.git")
+    if os.path.exists("/usr/local/lynis"):
+        os.system("cd /usr/local")
+        os.system("sudo git clone https://github.com/CISOfy/lynis.git")
+    else:
+        logging.critical('Could not download lynis')
 
 def firewall():
     try:
