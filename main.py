@@ -2,6 +2,7 @@ import os
 import sys
 import logging
 import platform
+import errno
 
 ## Logging stuff
 logging.basicConfig(filename='hardening.log' ,format='%(asctime)s - %(name)s - %(levelname)s | %(message)s |', stream=sys.stdout, level=logging.INFO)
@@ -13,9 +14,30 @@ logging.getLogger('').addHandler(console)
 
 def hardenssh():
     with open("/etc/ssh/sshd_config", "a") as myfile:
-        myfile.write("ClientAliveCountMax 2 \n Compression no\n MaxAuthTries 2 \nMaxSessions 2 \n TCPKeepAlive no \nUsePrivilegeSeparation SANDBOX \n AllowAgentForwarding no \n Banner /etc/issue.net")
-        os.system('sudo service ssh restart')
+        myfile.write("ClientAliveCountMax 2" + "\n" +
+                     "Compression no" + "\n" +
+                     "MaxAuthTries 2" + "\n" +
+                     "MaxSessions 2" + "\n" +
+                     "TCPKeepAlive no" + "\n" +
+                     "UsePrivilegeSeparation SANDBOX" + "\n" +
+                     "AllowAgentForwarding no" + "\n" +
+                     "Banner /etc/issue.net")
+    os.system('sudo service ssh restart')
     logging.info('SSHD |Added SSH config hardening')
+
+def hardenkernel():
+    with open("/etc/sysctl", "a") as myfile:
+        myfile.write("fs.suid_dumpable  0" + "\n" +
+                     "kernel.core_uses_pid 1" + "\n" +
+                     "kernel.kptr_restrict 2" + "\n" +
+                     "kernel.sysrq 0" + "\n" +
+                     "net.ipv4.conf.all.forwarding 0" + "\n" +
+                     "net.ipv4.conf.all.log_martians 1" + "\n" +
+                     "net.ipv4.conf.all.send_redirects 0" + "\n" +
+                     "net.ipv4.conf.default.log_martians 1" + "\n" +
+                     "net.ipv4.tcp_syncookies 1" + "\n" +
+                     "net.ipv4.tcp_timestamps")
+    logging.info('Kernel |Kernel hardening added')
 
 def banner():
     with open("/etc/issue.net", "a") as issue:
@@ -25,6 +47,13 @@ def banner():
     #                          Disconnect IMMEDIATELY if you are not an authorized user!                    #
     ###############################################################""")
     logging.info('issue.net | Add legal banner to /etc/issue.net, to warn unauthorized users [BANN-7130]')
+    with open("/etc/issue", "a") as issue:
+        issue.write("""###############################################################
+    #                                                      Welcome to Meastro's server                                                           # 
+    #                                   All connections are monitored and recorded                                         #
+    #                          Disconnect IMMEDIATELY if you are not an authorized user!                    #
+    ###############################################################""")
+    logging.info('issue | Add legal banner to /etc/issue, to warn unauthorized users [BANN-7130]')
     with open("/etc/motd", "a") as motd:
             motd.write("""###############################################################
     #                                                      Welcome to Meastro's server                                                           # 
@@ -35,12 +64,12 @@ def banner():
 
 def tools():
     try:
-        os.system('sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y')
+        os.system('sudo apt-get update -y > /dev/null 2>&1 && sudo apt-get upgrade -y > /dev/null 2>&1 && sudo apt-get dist-upgrade -y >/dev/null 2>&1')
         logging.info('System updated')
     except:
         logging.critical('Could not update!')
     try:
-        os.system('sudo apt-get install gi')
+        os.system('sudo apt-get install git')
         logging.info('Git installed')
     except:
         logging.critical('Could not install git!')
@@ -64,6 +93,27 @@ def tools():
         logging.info('[ACCT-9628] | Anti maleware ')
     except:
         logging.critical('[ACCT-9628] | Could not install  Anti maleware!')
+    try:
+        os.system('sudo apt-get install libpam-cracklib -y')
+        logging.info('[AUTH-9262] | Cracklib ')
+    except:
+        logging.critical('[AUTH-9262] | Could not install Crackliv!')
+    try:
+        os.system('sudo apt-get install sysstat -y')
+        logging.info('[ACCT-9626] | Sysstat accounting data')
+    except:
+        logging.critical('[ACCT-9626] | Sysstat accounting data not installed!')
+    try:
+        os.system('sudo apt-get install arpwatch -y')
+        logging.info('NETW-3032 |ARP is installed! integrety')
+    except:
+        logging.critical('NETW-3032 | could not install ARP already installed?')
+    try:
+        os.system('sudo apt-get install debsums -y')
+        logging.info('NETW-3032 |ARP is installed! integrety')
+    except:
+        logging.critical('NETW-3032 | could not install ARP already installed')
+
 
 def cleanlog():
     logging.info('Remove temp files')
@@ -107,4 +157,10 @@ def main():
 
 if __name__ == "__main__":
     # execute only if run as a script
+    try:
+        os.rename('/etc/foo', '/etc/bar')
+    except IOError as e:
+        if (e[0] == errno.EPERM):
+            print >> sys.stderr, "You need root permissions to do this!"
+            sys.exit(1)
     main()
