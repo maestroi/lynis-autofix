@@ -123,6 +123,18 @@ def tools():
         logging.info('NETW-3032 |ARP is installed! integrety')
     except:
         logging.critical('NETW-3032 | could not install ARP already installed')
+    time.sleep(2)
+    try:
+        os.system('sudo apt-get install debsecan -y > /dev/null 2>&1')
+        logging.info('NETW-3032 |ARP is installed! integrety')
+    except:
+        logging.critical('NETW-3032 | could not install ARP already installed')
+
+    try:
+        os.system('sudo apt-get install ntpdate -y > /dev/null 2>&1')
+        logging.info('NETW-3032 |ARP is installed! integrety')
+    except:
+        logging.critical('NETW-3032 | could not install ARP already installed')
 
 
 def cleanlog():
