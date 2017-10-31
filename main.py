@@ -77,10 +77,10 @@ def tools():
         logging.critical('Could not install git!')
     time.sleep(2)
     try:
-        os.system('sudo apt-get install AIDE -y > /dev/null 2>&1')
-        logging.info('AIDE |Aide is installed! integrety')
+        os.system('sudo apt-get install aide -y > /dev/null 2>&1')
+        logging.info('aide |Aide is installed! integrety')
     except:
-        logging.critical('AIDE | could not install AIDE already installed?')
+        logging.critical('aide | could not install aide already installed?')
     time.sleep(2)
     try:
         os.system('sudo apt-get install acct -y > /dev/null 2>&1')
@@ -122,19 +122,77 @@ def tools():
         os.system('sudo apt-get install debsums -y > /dev/null 2>&1')
         logging.info('NETW-3032 |ARP is installed! integrety')
     except:
-        logging.critical('NETW-3032 | could not install ARP already installed')
+        logging.critical('NETW-3032 | could not install debsums already installed')
     time.sleep(2)
     try:
         os.system('sudo apt-get install debsecan -y > /dev/null 2>&1')
         logging.info('NETW-3032 |ARP is installed! integrety')
     except:
-        logging.critical('NETW-3032 | could not install ARP already installed')
-
+        logging.critical('NETW-3032 | could not install debsecan already installed')
+    time.sleep(2)
     try:
         os.system('sudo apt-get install ntpdate -y > /dev/null 2>&1')
-        logging.info('NETW-3032 |ARP is installed! integrety')
+        logging.info('NETW-3032 |ntpdate is installed!')
     except:
-        logging.critical('NETW-3032 | could not install ARP already installed')
+        logging.critical('NETW-3032 | could not install ntpdate already installed')
+    time.sleep(2)
+    try:
+        os.system('sudo apt-get install libpam-tmpdir -y > /dev/null 2>&1')
+        logging.info('NETW-3032 |libpam-tmpdir is installed!')
+    except:
+        logging.critical('NETW-3032 | could not install libpam already installed')
+    time.sleep(2)
+    try:
+        os.system('sudo apt-get install sysstat -y > /dev/null 2>&1')
+        logging.info('NETW-3032 |sysstat is installed!')
+    except:
+        logging.critical('NETW-3032 | could not install sysstat already installed')
+    time.sleep(2)
+    try:
+        os.system('sudo apt-get install apt-show-versions -y > /dev/null 2>&1')
+        logging.info('NETW-3032 |Apt-show versions is installed!')
+    except:
+        logging.critical('NETW-3032 | could not install Apt-show versions already installed')
+    time.sleep(2)
+    try:
+        os.system('sudo apt-get install apt-listchanges -y > /dev/null 2>&1')
+        logging.info('NETW-3032 |apt-listchanges versions is installed!')
+    except:
+        logging.critical('NETW-3032 | could not install Apt-show versions already installed')
+    time.sleep(2)
+    try:
+        os.system('sudo apt-get install debian-goodies -y > /dev/null 2>&1')
+        logging.info('NETW-3032 |debian-goodies is installed!')
+    except:
+        logging.critical('NETW-3032 | could not install debian-goodies versions already installed')
+
+
+
+
+
+def apache():
+    logging.info('Apache Hardening')
+    try:
+        logging.info('Apache Hardening: mod security')
+        os.system('sudo apt-get install libapache2-mod-security2 -y > /dev/null 2>&1')
+    except:
+        logging.critical('Could not install mod security')
+    time.sleep(2)
+    try:
+        logging.info('Apache Hardening: libapache2-mod-evasive')
+        os.system('apt-get install libapache2-mod-evasive -y > /dev/null 2>&1')
+    except:
+        logging.critical('Could not install rule')
+    time.sleep(2)
+    try:
+        logging.info('install rule')
+        os.system('sudo sed -i "s/SecRuleEngine DetectionOnly/SecRuleEngine On/" /etc/modsecurity/modsecurity.conf')
+    except:
+        logging.critical('Could not install rule')
+
+
+
+
 
 
 def cleanlog():
