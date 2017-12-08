@@ -4,6 +4,7 @@ import logging
 import platform
 import time
 
+
 ## Logging stuff
 logging.basicConfig(filename='hardening.log' ,format='%(asctime)s - %(name)s - %(levelname)s | %(message)s |', stream=sys.stdout, level=logging.INFO)
 console = logging.StreamHandler()
