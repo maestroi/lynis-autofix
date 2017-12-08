@@ -41,25 +41,13 @@ def hardenkernel():
 
 def banner():
     with open("/etc/issue.net", "a") as issue:
-        issue.write("""###############################################################
-    #                                                      Welcome to Meastro's server                                                           # 
-    #                                   All connections are monitored and recorded                                         #
-    #                          Disconnect IMMEDIATELY if you are not an authorized user!                    #
-    ###############################################################""")
+        issue.write("""NOT YET""")
     logging.info('issue.net | Add legal banner to /etc/issue.net, to warn unauthorized users [BANN-7130]')
     with open("/etc/issue", "a") as issue:
-        issue.write("""###############################################################
-    #                                                      Welcome to Meastro's server                                                           # 
-    #                                   All connections are monitored and recorded                                         #
-    #                          Disconnect IMMEDIATELY if you are not an authorized user!                    #
-    ###############################################################""")
+        issue.write("""NOT YET""")
     logging.info('issue | Add legal banner to /etc/issue, to warn unauthorized users [BANN-7130]')
     with open("/etc/motd", "a") as motd:
-            motd.write("""###############################################################
-    #                                                      Welcome to Meastro's server                                                           # 
-    #                                   All connections are monitored and recorded                                         #
-    #                          Disconnect IMMEDIATELY if you are not an authorized user!                    #
-    ###############################################################""")
+        issue.write("""NOT YET""")
     logging.info('MOTD | Add a legal banner to /etc/issue, to warn unauthorized users [BANN-7126]')
 
 def tools():
@@ -166,10 +154,6 @@ def tools():
     except:
         logging.critical('NETW-3032 | could not install debian-goodies versions already installed')
 
-
-
-
-
 def apache():
     logging.info('Apache Hardening')
     try:
@@ -189,10 +173,6 @@ def apache():
         os.system('sudo sed -i "s/SecRuleEngine DetectionOnly/SecRuleEngine On/" /etc/modsecurity/modsecurity.conf')
     except:
         logging.critical('Could not install rule')
-
-
-
-
 
 
 def cleanlog():
