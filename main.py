@@ -40,6 +40,7 @@ def hardenkernel():
                      "net.ipv4.tcp_timestamps")
     logging.info('Kernel |Kernel hardening added')
 
+
 def banner():
     with open("/etc/issue.net", "a") as issue:
         issue.write("""NOT YET""")
