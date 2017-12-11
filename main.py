@@ -61,7 +61,7 @@ def tools():
         logging.critical('Could not update!')
     time.sleep(2)
     try:
-        os.system('sudo apt-get install git')
+        os.system('sudo apt-get install git -y  > /dev/null 2>&1')
         logging.info('Git installed')
     except:
         logging.critical('Could not install git!')
