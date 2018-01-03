@@ -32,10 +32,10 @@ def apache():
 
 def lynisupdate():
     if os.path.exists("/usr/local/lynis") == True:
-        os.system("cd /usr/local && git pull")
+        os.system("cd /usr/local/lynis && git pull")
         logging.info('Lynis updated')
     elif os.path.exists("/usr/local/lynis") == False:
-        os.system("git clone https://github.com/CISOfy/lynis.git /usr/local/lynis > /dev/null 2>&1")
+        os.system("sudo git clone https://github.com/CISOfy/lynis.git /usr/local/lynis > /dev/null 2>&1")
         logging.info('Lynis Installed')
     else:
         logging.critical('Could not update/download lynis')
@@ -43,7 +43,7 @@ def lynisupdate():
 def runlynis():
     try:
         logging.info('Generate Lynis Report bare with us :-)')
-        os.system("./usr/local/lynis audit system -q --report-file /usr/local/lynis/%s-report.dat"%datum)
+        os.system("cd /usr/local/lynis && sudo lynis audit system -q --report-file /usr/local/lynis/%s-report.dat"%datum)
         logging.info('Report Generated! find it at /usr/local/lynis/%s-report.dat'%datum)
     except:
         logging.critical('Could not update/download lynis')
