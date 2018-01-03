@@ -58,10 +58,13 @@ def main():
         exit()
     else:
         exit()
-    logging.info(40*"-")
+    logging.info(40 * "-")
     lynisupdate()
+    logging.info(40 * "-")
     runlynis()
+    logging.info(40 * "-")
     tools()
+    logging.info(40 * "-")
     apache()
 
 
