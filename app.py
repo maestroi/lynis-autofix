@@ -26,14 +26,31 @@ def tools():
                 logging.info(data[d]['id'])
                 logging.info(data[d]['Description'])
 
+def apache():
+    #print os.system('dpkg -l | grep apache2')
+    pass
+
+def lynisupdate():
+    if os.path.exists("/usr/local/lynis") == True:
+        os.system("cd /usr/local && git pull")
+        logging.info('Lynis updated')
+    elif os.path.exists("/usr/local/lynis") == False:
+        print 'suck'
+    else:
+        logging.critical('Could not update/download lynis')
+
 def main():
     logging.info("Welcome to Hardening")
-    logging.info("Running on %s version %s" %(platform.system(),platform.release()))
-    if platform.system() != "Ubuntu":
-        logging.critical("Operating system not Supported!")
-        #exit()
-    logging.info("Testing..!")
+    if platform.system() == "Linux":
+        logging.info("Running on %s version %s" % (platform.linux_distribution(), platform.release()))
+    elif platform.system() != "Linux":
+        logging.info("Running on %s version %s" % (platform.system(), platform.release()))
+        logging.critical("%s %s not Supported!" % (platform.system(), platform.release()))
+        exit()
+    else:
+        exit()
     tools()
+    apache()
 
 
 if __name__ == "__main__":
