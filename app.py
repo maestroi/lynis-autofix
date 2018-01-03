@@ -42,13 +42,14 @@ def lynisupdate():
 def main():
     logging.info("Welcome to Hardening")
     if platform.system() == "Linux":
-        logging.info("Running on %s version %s" % (platform.linux_distribution(), platform.release()))
+        logging.info("Running on %s version %s" % (platform.system(), platform.release()))
     elif platform.system() != "Linux":
         logging.info("Running on %s version %s" % (platform.system(), platform.release()))
         logging.critical("%s %s not Supported!" % (platform.system(), platform.release()))
         exit()
     else:
         exit()
+    logging.info(20*"-")
     tools()
     apache()
 
