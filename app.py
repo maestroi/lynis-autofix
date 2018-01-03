@@ -23,8 +23,7 @@ def tools():
 
         for exploit in data:
             for d in exploit:
-                logging.info(data[d]['id'])
-                logging.info(data[d]['Description'])
+                logging.info(data[d]['id']['Description'])
 
 def apache():
     #print os.system('dpkg -l | grep apache2')
@@ -43,7 +42,7 @@ def lynisupdate():
 def runlynis():
     try:
         logging.info('Generate Lynis Report bare with us :-)')
-        os.system("cd /usr/local/lynis && sudo ./lynis audit system -q --report-file /usr/local/lynis/%s-report.dat"%datum)
+        os.system("cd /usr/local/lynis && sudo ./lynis audit system -q --auditor 'Lynis-autofix' --report-file /usr/local/lynis/%s-report.dat > /dev/null 2>&1"%datum)
         logging.info('Report Generated! find it at /usr/local/lynis/%s-report.dat'%datum)
     except:
         logging.critical('Could not update/download lynis')
