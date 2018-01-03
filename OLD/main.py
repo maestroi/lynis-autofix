@@ -94,7 +94,7 @@ def tools():
         os.system('sudo apt-get install libpam-cracklib -y > /dev/null 2>&1')
         logging.info('[AUTH-9262] | Cracklib ')
     except:
-        logging.critical('[AUTH-9262] | Could not install Crackliv!')
+        logging.critical('[AUTH-9262] | Could not install Cracklib!')
     time.sleep(2)
     try:
         os.system('sudo apt-get install sysstat -y > /dev/null 2>&1')

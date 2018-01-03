@@ -1,0 +1,8 @@
+{
+  "1": {
+    "id": "TOOL-0001",
+    "category": "tool",
+    "command": "git clone https://github.com/CISOfy/lynis.git /usr/local/lynis > /dev/null 2>&1",
+    "Description": "Installing Lynis"
+  }
+}

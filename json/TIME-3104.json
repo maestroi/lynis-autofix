@@ -1,0 +1,8 @@
+{
+  "1": {
+    "id": "TIME-3104",
+    "category": "Time",
+    "command": "sudo apt-get install ntpdate -y > /dev/null 2>&1",
+    "Description": "Proper time synchronization is important for authentication services, forensics and troubleshooting. Therefore a time daemon (like ntpd) should be running, or a scheduled task to sync time (like ntpdate)."
+  }
+}

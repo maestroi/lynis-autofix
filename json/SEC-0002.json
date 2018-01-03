@@ -1,0 +1,8 @@
+{
+  "1": {
+    "id": "SEC-0002",
+    "category": "malware",
+    "command": "sudo apt-get install chkrootkit -y > /dev/null 2>&1",
+    "Description": "Enable chkrootkit"
+  }
+}

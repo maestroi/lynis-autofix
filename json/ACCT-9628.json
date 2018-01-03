@@ -1,0 +1,8 @@
+{
+  "1": {
+    "id": "ACCT-9628",
+    "category": "malware",
+    "command": "sudo apt-get install auditd -y > /dev/null 2>&",
+    "Description": "Enable auditd to collect audit information"
+  }
+}

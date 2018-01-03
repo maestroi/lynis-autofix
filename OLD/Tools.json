@@ -1,0 +1,42 @@
+ {
+    "1" : {
+        "id" : "ACCT-9628",
+        "command" : "sudo apt-get install auditd -y > /dev/null 2>&",
+        "Description" : "Enable auditd to collect audit information"
+    },
+    "2" : {
+        "id" : "ACCT-9630",
+        "command" : "sudo apt-get install rkhunter chkrootkit -y > /dev/null 2>&1",
+        "Description" : "Anti maleware"
+    },
+     "3" : {
+        "id" : "ACCT-9630",
+        "command" : "sudo apt-get install rkhunter chkrootkit -y > /dev/null 2>&1",
+        "Description" : "Anti maleware"
+     },
+     "4" : {
+        "id" : "ACCT-9630",
+        "command" : "sudo apt-get install rkhunter chkrootkit -y > /dev/null 2>&1",
+        "Description" : "Anti maleware"
+     },
+     "6" : {
+        "id" : "ACCT-9630",
+        "command" : "sudo apt-get install rkhunter chkrootkit -y > /dev/null 2>&1",
+        "Description" : "Anti maleware"
+     },
+     "7" : {
+        "id" : "ACCT-9630",
+        "command" : "sudo apt-get install rkhunter chkrootkit -y > /dev/null 2>&1",
+        "Description" : "Anti maleware"
+     },
+     "8" : {
+        "id" : "ACCT-9630",
+        "command" : "sudo apt-get install rkhunter chkrootkit -y > /dev/null 2>&1",
+        "Description" : "Anti maleware"
+     },
+     "9" : {
+        "id" : "ACCT-9630",
+        "command" : "sudo apt-get install rkhunter chkrootkit -y > /dev/null 2>&1",
+        "Description" : "Anti maleware"
+    }
+}
