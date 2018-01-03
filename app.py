@@ -35,8 +35,17 @@ def lynisupdate():
         os.system("cd /usr/local && git pull")
         logging.info('Lynis updated')
     elif os.path.exists("/usr/local/lynis") == False:
-        print 'suck'
+        os.system("git clone https://github.com/CISOfy/lynis.git /usr/local/lynis > /dev/null 2>&1")
+        logging.info('Lynis Installed')
     else:
+        logging.critical('Could not update/download lynis')
+
+def runlynis():
+    try:
+        logging.info('Generate Lynis Report bare with us :-)')
+        os.system("./usr/local/lynis audit system -q --report-file /usr/local/lynis/%s-report.dat"%datum)
+        logging.info('Report Generated! find it at /usr/local/lynis/%s-report.dat'%datum)
+    except:
         logging.critical('Could not update/download lynis')
 
 def main():
@@ -49,7 +58,9 @@ def main():
         exit()
     else:
         exit()
-    logging.info(20*"-")
+    logging.info(40*"-")
+    lynisupdate()
+    runlynis()
     tools()
     apache()
 
