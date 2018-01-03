@@ -23,7 +23,8 @@ def tools():
 
         for exploit in data:
             for d in exploit:
-                logging.info(data[d]['id']['Description'])
+                logging.info(data[d]['id'])
+                logging.info(data[d]['Description'])
 
 def apache():
     #print os.system('dpkg -l | grep apache2')
