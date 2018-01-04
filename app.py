@@ -114,9 +114,8 @@ def main():
 
 
 if __name__ == "__main__":
-    # execute only if run as a script
     user = os.getenv("SUDO_USER")
-    #if user is None:
-    #    print("This program need 'sudo'")
-    #    exit()
+    if user is None:
+        print("This program need 'sudo'")
+        exit()
     main()

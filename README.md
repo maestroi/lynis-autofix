@@ -10,4 +10,4 @@ For now it will do the following:
 
 The fixes for all the issues can be found inside the JSON folder feel free to add or modify a better solution!
 
-
+Run app.py with python 2.7 and sudo privileges. 
