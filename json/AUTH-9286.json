@@ -1,0 +1,8 @@
+{
+  "1": {
+    "id": "AUTH-9286",
+    "category": "Authentication",
+    "command": "echo NOT YET DONE!",
+    "Description": "Configure minimum and maximum password age in /etc/login.defs and "
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "1": {
+    "id": "AUTH-9328",
+    "category": "Authentication",
+    "command": "echo NOT YET DONE!",
+    "Description": "Default umask in /etc/login.defs and /etc/init.d/rc could be more strict like 027"
+  }
+}

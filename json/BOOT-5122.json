@@ -1,0 +1,8 @@
+{
+  "1": {
+    "id": "BOOT-5122",
+    "category": "Boot",
+    "command": "echo NOT YET DONE!",
+    "Description": "Set a password on GRUB bootloader to prevent altering boot configuration (e.g. boot in single user mode without password)"
+  }
+}
