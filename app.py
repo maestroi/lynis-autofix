@@ -11,7 +11,7 @@ from StringIO import StringIO
 from pprint import pprint
 
 ## Logging stuff
-datum = time.strftime("%d-%m-%Y-%H:%M:%S")
+datum = time.strftime("%d-%m-%Y-%H-%M-%S")
 logging.basicConfig(filename='%s-log.log'%(datum) ,format='%(asctime)s - %(name)s - %(levelname)s | %(message)s |', stream=sys.stdout, level=logging.INFO)
 console = logging.StreamHandler()
 console.setLevel(logging.INFO)
