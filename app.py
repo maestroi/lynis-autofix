@@ -71,9 +71,10 @@ def lynisupdate():
 def runlynis():
     try:
         logging.info('Generate Lynis Report bare with us :-)')
-        os.system("cd /usr/local/lynis && sudo ./lynis audit system -q --auditor 'Lynis-autofix' --report-file /usr/local/lynis/%s-report.dat > /dev/null 2>&1"%datum)
-        os.system("cd /usr/local/lynis && cat /usr/local/lynis/%s-report.dat | grep suggestion > /usr/local/lynis/%s-suggestion.dat"%(datum,datum))
-        logging.info('Report Generated! find it at /usr/local/lynis/%s-suggestion.dat'%datum)
+        os.system("cd /usr/local/lynis && sudo ./lynis audit system -q --auditor 'Lynis-autofix' --report-file /usr/local/lynis/%s-report.dat > /dev/null 2>&1 && cat /usr/local/lynis/%s-report.dat | grep suggestion > /usr/local/lynis/%s-suggestion.txt "%(datum,datum,datum))
+        with open('/usr/local/lynis/%s-suggestion.txt'%datum) as data_file:
+            print(data_file)
+        logging.info('Report Generated! find it at /usr/local/lynis/%s-suggestion.txt'%datum)
     except:
         logging.critical('Could not update/download lynis')
 
