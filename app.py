@@ -87,8 +87,6 @@ def todolist():
     for row in file:
         matches = re.findall(regex, row)
         listtodo.append(matches)
-        logging.info(matches)
-    logging.info(listtodo)
     file.close()
 
 def main():
