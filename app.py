@@ -72,14 +72,14 @@ def runlynis():
     try:
         logging.info('Generate Lynis Report bare with us :-)')
         os.system("cd /usr/local/lynis && sudo ./lynis audit system -q --auditor 'Lynis-autofix' --report-file /usr/local/lynis/%s-report.dat > /dev/null 2>&1 && cat /usr/local/lynis/%s-report.dat | grep suggestion > /usr/local/lynis/%s-suggestion.txt "%(datum,datum,datum))
-        with open('/usr/local/lynis/%s-suggestion.txt'%datum) as data_file:
-            print(data_file)
+        with open('/usr/local/lynis/%s-suggestion.txt'%datum,"r") as suggestion:
+            print(suggestion)
         logging.info('Report Generated! find it at /usr/local/lynis/%s-suggestion.txt'%datum)
     except:
         logging.critical('Could not update/download lynis')
 
 def main():
-    logging.info("Welcome to Hardening")
+    logging.info("Welcome to Lynis Autofix!")
     if platform.system() == "Linux":
         logging.info("Running on %s version %s" % (platform.system(), platform.release()))
     elif platform.system() != "Linux":
