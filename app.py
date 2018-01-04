@@ -29,6 +29,7 @@ def run_shell_command(command_line):
             command_line_args,
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
+            shell=True,
         )
 
         process_output, _ =  command_line_process.communicate()
