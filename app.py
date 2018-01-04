@@ -2,8 +2,11 @@ import json
 import logging
 import platform
 import sys
+import shlex
 import time
 import os
+import subprocess
+from StringIO import StringIO
 from pprint import pprint
 
 ## Logging stuff
@@ -15,6 +18,30 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s | %(messag
 console.setFormatter(formatter)
 logging.getLogger('').addHandler(console)
 
+
+def run_shell_command(command_line):
+    command_line_args = shlex.split(command_line)
+
+    logging.info('Subprocess: "' + command_line + '"')
+
+    try:
+        command_line_process = subprocess.Popen(
+            command_line_args,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+        )
+
+        process_output, _ =  command_line_process.communicate()
+
+    except (OSError) as exception:
+        logging.info('Exception occured: ' + str(exception))
+        logging.info('Subprocess failed')
+        return False
+    else:
+        # no exception was raised
+        logging.info('Subprocess finished')
+    return True
+
 def tools():
     x = os.listdir("./json")
     for jsons in x:
@@ -24,7 +51,7 @@ def tools():
         for exploit in data:
             for d in exploit:
                 logging.info(data[d]['id'])
-                logging.info(data[d]['Description'])
+                run_shell_command(data[d]['command'])
 
 def apache():
     #print os.system('dpkg -l | grep apache2')
