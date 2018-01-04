@@ -21,15 +21,6 @@ logging.getLogger('').addHandler(console)
 listtodo = []
 
 def fix_yes_no(question, default="yes"):
-    """Ask a yes/no question via raw_input() and return their answer.
-
-    "question" is a string that is presented to the user.
-    "default" is the presumed answer if the user just hits <Enter>.
-        It must be "yes" (the default), "no" or None (meaning
-        an answer is required of the user).
-
-    The "answer" return value is True for "yes" or False for "no".
-    """
     valid = {"yes": True, "y": True, "ye": True,
              "no": False, "n": False}
     if default is None:
@@ -87,16 +78,8 @@ def fixes():
                         logging.info('%s - %s' % (data[d]['id'], data[d]['command']))
                      else:
                          logging.warning('%s - %s is not installed' % (data[d]['id'], data[d]['command']))
-
-
-
-
         except:
             logging.critical('%s.json does not excist in the json directory' % todo[0])
-
-def apache():
-    #print os.system('dpkg -l | grep apache2')
-    pass
 
 def lynisupdate():
     if os.path.exists("/usr/local/lynis") == True:
@@ -146,8 +129,6 @@ def main():
     todolist()
     logging.info(40 * "-")
     fixes()
-    logging.info(40 * "-")
-    apache()
 
 
 if __name__ == "__main__":
