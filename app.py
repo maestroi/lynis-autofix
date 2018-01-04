@@ -5,6 +5,7 @@ import sys
 import shlex
 import time
 import os
+import re
 import subprocess
 from StringIO import StringIO
 from pprint import pprint
@@ -17,7 +18,7 @@ console.setLevel(logging.INFO)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s | %(message)s |')
 console.setFormatter(formatter)
 logging.getLogger('').addHandler(console)
-
+listtodo = []
 
 def run_shell_command(command_line):
     command_line_args = shlex.split(command_line)
@@ -43,16 +44,17 @@ def run_shell_command(command_line):
         logging.info('Subprocess finished')
     return True
 
-def tools():
-    x = os.listdir("./json")
-    for jsons in x:
-        with open('json/%s'%jsons) as data_file:
-            data = json.load(data_file)
+def fixes():
+    for todo in listtodo:
+        try:
+            with open('json/%s.json' % todo[0]) as data_file:
+                data = json.load(data_file)
+            for fix in data:
+                for d in fix:
+                    logging.info('%s - %s' % (data[d]['id'], data[d]['command']))
 
-        for exploit in data:
-            for d in exploit:
-                logging.info(data[d]['id'])
-                run_shell_command(data[d]['command'])
+        except:
+            logging.critical('%s.json does not excist in the json directory' % todo[0])
 
 def apache():
     #print os.system('dpkg -l | grep apache2')
@@ -77,7 +79,17 @@ def runlynis():
             logging.info("%s"%row)
         file.close()
     except:
-        logging.critical('Could not update/download lynis')
+        logging.critical('Could not create report from lynis')
+
+def todolist():
+    file = open("/usr/local/lynis/%s-suggestion.txt"%datum, "r")
+    regex = r"suggestion\[\]=([A-z-0-9]+)\|"
+    for row in file:
+        matches = re.findall(regex, row)
+        listtodo.append(matches)
+        logging.info(matches)
+    logging.info(listtodo)
+    file.close()
 
 def main():
     logging.info("Welcome to Lynis Autofix!")
@@ -94,7 +106,9 @@ def main():
     logging.info(40 * "-")
     runlynis()
     logging.info(40 * "-")
-    tools()
+    todolist()
+    logging.info(40 * "-")
+    fixes()
     logging.info(40 * "-")
     apache()
 
