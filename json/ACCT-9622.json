@@ -1,0 +1,8 @@
+{
+  "1": {
+    "id": "ACCT-9622",
+    "category": "Software",
+    "command": "sudo apt-get install debsums -y > /dev/null 2>&1",
+    "Description": "Install debsums utility Install the debsums utility for additional checks."
+  }
+}
