@@ -1,0 +1,8 @@
+{
+  "1": {
+    "id": "HRDN-7222",
+    "category": "Kernel",
+    "command": "not done yet",
+    "Description": "Harden compilers like restricting access to root user only"
+  }
+}

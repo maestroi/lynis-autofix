@@ -1,0 +1,8 @@
+{
+  "1": {
+    "id": "HRDN-7230",
+    "category": "Kernel",
+    "command": "not done yet",
+    "Description": "Harden the system by installing at least one malware scanner, to perform periodic file system scans|-|Install a tool like rkhunter, chkrootkit, OSSEC"
+  }
+}
