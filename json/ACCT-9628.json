@@ -1,8 +1,10 @@
 {
   "1": {
     "id": "ACCT-9628",
-    "category": "malware",
+    "category": "Accounting",
     "command": "sudo apt-get install auditd -y > /dev/null 2>&",
-    "Description": "Enable auditd to collect audit information"
+	"Description": "Enable auditd to collect audit information"
+    "moreinfo": "For Linux systems the Linux audit daemon can audit files and processes. This control checks for the status of the audit daemon. Suspicious changes or activities will trigger an event to be logged by the audit daemon."
   }
 }
+

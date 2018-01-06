@@ -1,8 +1,9 @@
 {
   "1": {
     "id": "SSH-7408",
-    "category": "Software",
+    "category": "SSH",
     "command": "sudo apt-get install debsums -y > /dev/null 2>&1",
-    "Description": "Install debsums utility Install the debsums utility for additional checks."
+    "Description": "Consider hardening SSH configuration.",
+	"moreinfo": "Proper hardening of your SSH configuration can reduce known weaknesses"
   }
 }

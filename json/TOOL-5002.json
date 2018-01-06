@@ -1,8 +1,9 @@
 {
   "1": {
-    "id": "ACCT-9622",
-    "category": "Software",
-    "command": "sudo apt-get install debsums -y > /dev/null 2>&1",
-    "Description": "Install debsums utility Install the debsums utility for additional checks."
+    "id": "TOOL-5002",
+    "category": "Tooling",
+    "command": "echo not done yet",
+    "Description": "Install debsums utility Install the debsums utility for additional checks.",
+	"moreinfo": "This control checks if there are tools installed which help with automating system management. This increases integrity and stability of systems, by keep systems equally managed and configured, with only minor exceptions depending on the role of the machine."
   }
 }

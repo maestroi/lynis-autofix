@@ -1,8 +1,9 @@
 {
   "1": {
     "id": "HRDN-7230",
-    "category": "Kernel",
-    "command": "not done yet",
-    "Description": "Harden the system by installing at least one malware scanner, to perform periodic file system scans|-|Install a tool like rkhunter, chkrootkit, OSSEC"
+    "category": "Malware",
+    "command": "echo not done yet",
+    "Description": "Harden the system by installing at least one malware scanner, to perform periodic file system scans|-|Install a tool like rkhunter, chkrootkit, OSSEC",
+	"moreinfo": "Malware scanners search for any traces of malware. Regular checks are advised to improve the detection rate, in case of an intrusion of the system. Also the proper implementation can prevent malware from spreading to other systems. One example might be installing a virus scanner on a mail gateway, to protect users."
   }
 }

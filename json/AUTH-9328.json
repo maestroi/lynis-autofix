@@ -3,6 +3,7 @@
     "id": "AUTH-9328",
     "category": "Authentication",
     "command": "echo NOT YET DONE!",
-    "Description": "Default umask in /etc/login.defs and /etc/init.d/rc could be more strict like 027"
+    "Description": "Default umask in /etc/login.defs and /etc/init.d/rc could be more strict like 027",
+	"moreinfo": "The umask defines what default file permissions will be applied on a file or directory. Usually servers can have a more strict umask like 027, where desktops may be less strict (022)."
   }
 }

@@ -2,7 +2,8 @@
   "1": {
     "id": "NETW-3032",
     "category": "Networking",
-    "command": "sudo apt-get install sysstat -y > /dev/null 2>&1",
-    "Description": "ARP monitoringConsider the usage of a tool which monitors ARP traffic"
+    "command": "echo not done yet",
+    "Description": "Consider running ARP monitoring software (arpwatch,arpon)",
+	"moreinfo": "Consider the usage of a tool which monitors ARP traffic"
   }
 }

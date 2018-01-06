@@ -1,8 +1,9 @@
 {
   "1": {
     "id": "NETW-2705",
-    "category": "Software",
-    "command": "sudo apt-get install debsums -y > /dev/null 2>&1",
-    "Description": "Install debsums utility Install the debsums utility for additional checks."
+    "category": "Networking",
+    "command": "echo not done yet",
+    "Description": "Check your resolv.conf file and fill in a backup nameserver if possible.",
+	"moreinfo": "Connectivity is the central link for systems to communicate. Most communication occurs on layer 3 (network) for interconnected systems. There DNS resolving is very important for proper functioning.DNS resolving, while it is part of the basics, is often overlooked. To limit the chance of failure or bad performance, at least two working name servers are advised.Lynis tests the availability of name servers and if they actually respond to queries. To determine what DNS servers are used, consult the /etc/resolv.conf file.."
   }
 }

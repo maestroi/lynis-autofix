@@ -1,8 +1,9 @@
 {
   "1": {
     "id": "HRDN-7222",
-    "category": "Kernel",
-    "command": "not done yet",
-    "Description": "Harden compilers like restricting access to root user only"
+    "category": "Hardening",
+    "command": "echo not done yet",
+    "Description": "Harden compilers like restricting access to root user only",
+	"moreinfo": "Compilers turn source code into binary executable code. For a production system a compiler is usually not needed, unless package upgrades are performed by means of their source code. If a compiler is found, execution should be limited to authorized users only (e.g. root user)."
   }
 }

@@ -1,8 +1,9 @@
 {
   "1": {
     "id": "BANN-7126",
-    "category": "Software",
-    "command": "sudo apt-get install debsums -y > /dev/null 2>&1",
-    "Description": "Install debsums utility Install the debsums utility for additional checks."
+    "category": "Banner",
+    "command": "echo not done yet",
+    "Description": "Add a legal banner to /etc/issue, to warn unauthorized users",
+	"moreinfo": "Make users aware that systems are monitored and their privacy might be limited, if required by legal requirements or law. Add a banner to /etc/issue.net to warn users."
   }
 }

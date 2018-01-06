@@ -3,6 +3,7 @@
     "id": "AUTH-9262",
     "category": "Authentication",
     "command": "sudo apt-get install libpam-cracklib -y > /dev/null 2>&1",
-    "Description": "Several modules within the PAM framework can help restricting access to facilities to only authorized people, including limitations as a strong password, the right console, or the right software. Passwords should be protected and strengthened where possible. On Unix and Linux based systems this is usually done via PAM modules and the related configuration files. Examples include tools like passwdqc (password quality control) and cracklib (password cracking library)."
+    "Description": "Install a PAM module for password strength testing like pam_cracklib or pam_passwdqc.",
+	"moreinfo": "Several modules within the PAM framework can help restricting access to facilities to only authorized people, including limitations as a strong password, the right console, or the right software. Passwords should be protected and strengthened where possible. On Unix and Linux based systems this is usually done via PAM modules and the related configuration files. Examples include tools like passwdqc (password quality control) and cracklib (password cracking library)."
   }
 }

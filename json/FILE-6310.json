@@ -1,8 +1,9 @@
 {
   "1": {
     "id": "FILE-63100",
-    "category": "Kernel",
+    "category": "FileIntegrity",
     "command": "not done yet",
-    "Description": "Harden the system by installing at least one malware scanner, to perform periodic file system scans|-|Install a tool like rkhunter, chkrootkit, OSSEC"
+    "Description": "To decrease the impact of a full /home /var /tmp file system, place /home /var /tmp on a separated partition|",
+	"moreinfo": "Some partitions like /tmp and /home can be easily filled by users of a system. When not being separated from the root file system, this might increase the risk of filling up this file system and cause malfunctioning to other system components."
   }
 }

@@ -1,8 +1,9 @@
 {
   "1": {
     "id": "ACCT-9622",
-    "category": "Software",
+    "category": "Accounting",
     "command": "sudo apt-get install debsums -y > /dev/null 2>&1",
-    "Description": "Install debsums utility Install the debsums utility for additional checks."
+    "Description": "Install a PAM module for password strength testing like pam_cracklib or pam_passwdqc.",
+	"moreinfo": "Process accounting is a method to track system resources. It includes a way to monitor system resources and how these resources are used for the users on the system. On Linux systems, process accounting can be enabled to track these resources."
   }
 }

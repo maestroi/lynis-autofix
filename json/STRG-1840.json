@@ -1,8 +1,9 @@
 {
   "1": {
-    "id": "FILE-63100",
-    "category": "Kernel",
+    "id": "STRG-1840",
+    "category": "Storage",
     "command": "not done yet",
-    "Description": "Harden the system by installing at least one malware scanner, to perform periodic file system scans|-|Install a tool like rkhunter, chkrootkit, OSSEC"
+    "Description": "Disable drivers like USB storage when not used, to prevent unauthorized storage or data theft",
+	"moreinfo": "Disable drivers like USB storage when not used, to prevent unauthorized storage or data theft"
   }
 }

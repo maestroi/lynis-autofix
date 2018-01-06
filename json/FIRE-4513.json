@@ -1,8 +1,9 @@
 {
   "1": {
     "id": "FIRE-4513",
-    "category": "Software",
-    "command": "sudo apt-get install debsums -y > /dev/null 2>&1",
-    "Description": "Install debsums utility Install the debsums utility for additional checks."
+    "category": "Firewall",
+    "command": "echo not done yet",
+    "Description": "Check iptables rules to see which rules are currently not used",
+	"moreinfo": "This control checks what iptables rules are currently not being used. Proper maintenance of firewall rules is essential for accuracy and proper network traffic filtering. Regular checks on the proper working and rule-sets help in limiting traffic to the bare minimum and decrease general risk of unauthorized connections. Note: Some rules might have no hits, while still being applicable. Before removing rules, make sure that the time to monitor is long enough."
   }
 }

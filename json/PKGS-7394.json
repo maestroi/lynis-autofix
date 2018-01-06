@@ -1,8 +1,9 @@
 {
   "1": {
     "id": "PKGS-7394",
-    "category": "Kernel",
-    "command": "not done yet",
-    "Description": "Harden the system by installing at least one malware scanner, to perform periodic file system scans|-|Install a tool like rkhunter, chkrootkit, OSSEC"
+    "category": "Software",
+    "command": "echo not done yet",
+    "Description": "Install package apt-show-versions for patch management purposes",
+	"moreinfo": "This control tests for available upgrades on Ubuntu. Depending on your software upgrade policy, determine if this control is too strict.."
   }
 }

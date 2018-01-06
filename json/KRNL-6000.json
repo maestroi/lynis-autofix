@@ -1,8 +1,9 @@
 {
   "1": {
-    "id": "ACCT-9622",
-    "category": "Software",
-    "command": "sudo apt-get install debsums -y > /dev/null 2>&1",
-    "Description": "Install debsums utility Install the debsums utility for additional checks."
+    "id": "KRNL-6000",
+    "category": "Kernel",
+    "command": "echo not done yet",
+    "Description": "One or more sysctl values differ from the scan profile and could be tweaked.",
+	"moreinfo": "By means of sysctl values we can adjust kernel related parameters. Many of them are related to hardening of the network stack, how the kernel deals with processes or files. This control is a generic test with several sysctl variables (configured by the scan profile)."
   }
 }

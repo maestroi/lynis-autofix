@@ -3,6 +3,7 @@
     "id": "PKGS-7370",
     "category": "Software",
     "command": "sudo apt-get install debsums -y > /dev/null 2>&1",
-    "Description": "Install debsums utility Install the debsums utility for additional checks."
+    "Description": "Install debsums utility for the verification of packages with known good database.",
+	"moreinfo": "Install the debsums utility for additional checks."
   }
 }

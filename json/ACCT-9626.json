@@ -1,8 +1,9 @@
 {
   "1": {
     "id": "ACCT-9626",
-    "category": "Authentication",
+    "category": "Accounting",
     "command": "sudo apt-get install sysstat -y > /dev/null 2>&1",
-    "Description": "Sysstat accounting dataSysstat collects system information"
+    "Description": "Enable sysstat to collect accounting (no results)",
+	"moreinfo": "Sysstat collects system information."
   }
 }

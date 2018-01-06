@@ -1,8 +1,9 @@
 {
   "1": {
     "id": "HTTP-6710",
-    "category": "Software",
-    "command": "sudo apt-get install debsums -y > /dev/null 2>&1",
-    "Description": "Install debsums utility Install the debsums utility for additional checks."
+    "category": "Web",
+    "command": "echo not done yet",
+    "Description": "Add HTTPS to nginx virtual hosts for enhanced protection of sensitive data and privacy"
+	"moreinfo": "To protect the privacy of users, including sniffing of sensitive data on networks, enable SSL/TLS in nginx.."
   }
 }

@@ -3,6 +3,7 @@
     "id": "AUTH-9286",
     "category": "Authentication",
     "command": "echo NOT YET DONE!",
-    "Description": "Configure minimum and maximum password age in /etc/login.defs and "
+    "Description": "Configure minimum and maximum password age in /etc/login.defs and ",
+	"moreinfo": "Proper protection against weak passwords and regular changes, limits the risk of cracking passwords or being obtained by unauthorized people."
   }
 }

@@ -1,8 +1,9 @@
 {
   "1": {
     "id": "FINT-4350",
-    "category": "malware",
-    "command": "sudo apt-get install acct -y > /dev/null 2>&1",
-    "Description": "To monitor for unauthorized changes, a file integrity tool can help with the detection of such event. Each time the contents or the properties of a file change, it will have a different checksum. With regular checks of the related integrity database, discovering changes becomes easy.Install a tool like AIDE, Samhain or Tripwire to monitor important system and data files. Additionally configure the tool to alert system or security personnel on events."
+    "category": "FileIntegrity",
+    "command": "echo not done yet",
+    "Description": "Install a file integrity tool to monitor changes to critical and sensitive files.",
+	"moreinfo": "To monitor for unauthorized changes, a file integrity tool can help with the detection of such event. Each time the contents or the properties of a file change, it will have a different checksum. With regular checks of the related integrity database, discovering changes becomes easy.Install a tool like AIDE, Samhain or Tripwire to monitor important system and data files. Additionally configure the tool to alert system or security personnel on events.."
   }
 }
