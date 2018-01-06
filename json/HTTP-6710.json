@@ -3,7 +3,7 @@
     "id": "HTTP-6710",
     "category": "Web",
     "command": "echo not done yet",
-    "Description": "Add HTTPS to nginx virtual hosts for enhanced protection of sensitive data and privacy"
-	"moreinfo": "To protect the privacy of users, including sniffing of sensitive data on networks, enable SSL/TLS in nginx.."
+    "Description": "Add HTTPS to nginx virtual hosts for enhanced protection of sensitive data and privacy",
+	"moreinfo": "To protect the privacy of users, including sniffing of sensitive data on networks, enable SSL/TLS in nginx."
   }
 }
