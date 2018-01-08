@@ -75,7 +75,7 @@ def fixes():
             for fix in data:
                 for d in fix:
                      if fix_yes_no('Do you want to install %s - %s?'%(data[d]['id'], data[d]['Description']), default="yes") == True:
-                        logging.info('%s - %s' % (data[d]['id'], data[d]['command']))
+                        logging.info('We installed: %s :)' % (data[d]['id']))
                      else:
                          logging.warning('%s - %s is not installed' % (data[d]['id'], data[d]['command']))
         except:
