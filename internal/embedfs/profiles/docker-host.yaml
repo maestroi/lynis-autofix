@@ -1,0 +1,23 @@
+name: docker-host
+description: "For Docker hosts — preserves bridge networking and Docker-managed iptables."
+
+blocked_modules:
+  - firewall-baseline
+
+protected_services:
+  - docker
+  - containerd
+
+protected_port_ranges:
+  - start: 2375
+    end: 2376
+    proto: tcp
+
+sysctl_policy:
+  allow_network_changes: false
+  allow_kernel_changes: true
+  blocked_keys:
+    - net.ipv4.ip_forward
+
+max_risk_level: high
+failure_policy: rollback_failed_and_stop

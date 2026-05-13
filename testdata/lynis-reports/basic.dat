@@ -1,0 +1,11 @@
+report_version_major=1
+report_version_minor=2
+lynis_version=3.0.9
+
+warning[]=SSH-7408|sshd option PermitRootLogin is not disabled|
+warning[]=AUTH-9262|No password set for single user mode|extra detail here
+suggestion[]=KRNL-6000|One or more sysctl values differ from the scan profile and could be tweaked.|
+suggestion[]=FIRE-4513|Check iptables rules to see which rules are currently not used|
+suggestion[]=PKGS-7394|Install debsums utility to periodically verify installed packages.|
+
+hardening_index=62
