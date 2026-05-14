@@ -4,6 +4,7 @@ import (
 	acctmod "github.com/maestroi/hardener/internal/modules/accounting/acct"
 	auditdmod "github.com/maestroi/hardener/internal/modules/accounting/auditd"
 	bannermod "github.com/maestroi/hardener/internal/modules/banner"
+	coredumpmod "github.com/maestroi/hardener/internal/modules/kernel/coredump"
 	sysctlmod "github.com/maestroi/hardener/internal/modules/kernel/sysctl"
 	logrotmod "github.com/maestroi/hardener/internal/modules/logging/logrotate"
 	debsumsmod "github.com/maestroi/hardener/internal/modules/packages/debsums"
@@ -22,5 +23,6 @@ func Default() *Registry {
 	r.Register(acctmod.New())
 	r.Register(auditdmod.New())
 	r.Register(sysctlmod.New())
+	r.Register(coredumpmod.New())
 	return r
 }
