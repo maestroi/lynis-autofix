@@ -20,6 +20,31 @@
 go build -o hardener .
 ```
 
+## One-line installer (curl)
+
+If this repository is hosted on GitHub, you can install with:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/maestroi/lynis-autofix/main/scripts/install.sh | bash
+```
+
+Install a specific version:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/maestroi/lynis-autofix/main/scripts/install.sh | HARDENER_INSTALL_VERSION=v0.1.0 bash
+```
+
+Optional installer variables:
+
+- `HARDENER_INSTALL_REPO` (default: `maestroi/lynis-autofix`)
+- `HARDENER_INSTALL_VERSION` (default: `latest`)
+- `HARDENER_INSTALL_METHOD` (`auto`, `release`, `source`)
+- `HARDENER_INSTALL_DIR` (default: `/usr/local/bin`)
+
+Installer script location in this repo:
+
+- `scripts/install.sh`
+
 ## Quick start
 
 1) Generate a Lynis report:

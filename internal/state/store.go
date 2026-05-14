@@ -20,7 +20,7 @@ type FileStore struct {
 
 // NewFileStore creates a FileStore rooted at dir, creating subdirectories as needed.
 func NewFileStore(dir string) (*FileStore, error) {
-	for _, sub := range []string{"runs", "backups", "locks"} {
+	for _, sub := range []string{"runs", "backups", "locks", "scans"} {
 		if err := os.MkdirAll(filepath.Join(dir, sub), 0750); err != nil {
 			return nil, fmt.Errorf("creating state dir %s/%s: %w", dir, sub, err)
 		}
@@ -148,6 +148,56 @@ func (s *FileStore) ListRuns(ctx context.Context) ([]*model.Run, error) {
 	return runs, nil
 }
 
+func (s *FileStore) SaveScan(ctx context.Context, result *model.ScanResult) error {
+	_ = ctx
+	name := fmt.Sprintf("%d.json", result.Timestamp.UnixNano())
+	path := filepath.Join(s.dir, "scans", name)
+	return s.writeJSON(path, result)
+}
+
+func (s *FileStore) LatestScan(ctx context.Context) (*model.ScanResult, error) {
+	scans, err := s.ListScans(ctx)
+	if err != nil {
+		return nil, err
+	}
+	if len(scans) == 0 {
+		return nil, ErrNoScans
+	}
+	return scans[len(scans)-1], nil
+}
+
+func (s *FileStore) ListScans(ctx context.Context) ([]*model.ScanResult, error) {
+	_ = ctx
+	dir := filepath.Join(s.dir, "scans")
+	entries, err := os.ReadDir(dir)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return nil, nil
+		}
+		return nil, err
+	}
+
+	var results []*model.ScanResult
+	for _, e := range entries {
+		if e.IsDir() || filepath.Ext(e.Name()) != ".json" {
+			continue
+		}
+		data, err := os.ReadFile(filepath.Join(dir, e.Name()))
+		if err != nil {
+			continue
+		}
+		result := new(model.ScanResult)
+		if err := json.Unmarshal(data, result); err != nil {
+			continue
+		}
+		results = append(results, result)
+	}
+	sort.Slice(results, func(i, j int) bool {
+		return results[i].Timestamp.Before(results[j].Timestamp)
+	})
+	return results, nil
+}
+
 func (s *FileStore) LoadRollbackManifest(ctx context.Context, runID string) (*model.RollbackManifest, error) {
 	_ = ctx
 	data, err := os.ReadFile(filepath.Join(s.runDir(runID), "rollback.json"))
@@ -159,6 +209,37 @@ func (s *FileStore) LoadRollbackManifest(ctx context.Context, runID string) (*mo
 		return nil, fmt.Errorf("parsing rollback manifest: %w", err)
 	}
 	return &manifest, nil
+}
+
+func (s *FileStore) LoadPlan(ctx context.Context, runID string) ([]*model.PlannedAction, error) {
+	_ = ctx
+	path := filepath.Join(s.runDir(runID), "plan.json")
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return nil, fmt.Errorf("plan for run %s: %w", runID, err)
+	}
+	var actions []*model.PlannedAction
+	if err := json.Unmarshal(data, &actions); err != nil {
+		return nil, fmt.Errorf("parsing plan for run %s: %w", runID, err)
+	}
+	return actions, nil
+}
+
+func (s *FileStore) LoadApplied(ctx context.Context, runID string) ([]*model.AppliedAction, error) {
+	_ = ctx
+	path := filepath.Join(s.runDir(runID), "applied.json")
+	data, err := os.ReadFile(path)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return nil, nil
+		}
+		return nil, fmt.Errorf("applied actions for run %s: %w", runID, err)
+	}
+	var actions []*model.AppliedAction
+	if err := json.Unmarshal(data, &actions); err != nil {
+		return nil, fmt.Errorf("parsing applied actions for run %s: %w", runID, err)
+	}
+	return actions, nil
 }
 
 func (s *FileStore) writeJSON(path string, v interface{}) error {
