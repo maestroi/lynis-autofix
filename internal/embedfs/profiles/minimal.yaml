@@ -1,0 +1,19 @@
+name: minimal
+description: "Only low-risk, highly safe fixes. Suitable for production systems with no tolerance for disruption."
+
+allowed_modules: []
+blocked_modules:
+  - firewall-baseline
+  - kernel-sysctl
+  - auditd-basic
+
+max_risk_level: low
+require_confirm:
+  - ssh-hardening
+
+sysctl_policy:
+  allow_network_changes: false
+  allow_kernel_changes: false
+  blocked_keys: []
+
+failure_policy: rollback_failed_and_stop

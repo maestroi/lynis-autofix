@@ -1,0 +1,5 @@
+# /etc/login.defs — default (unhardened)
+PASS_MAX_DAYS   99999
+PASS_MIN_DAYS   0
+PASS_WARN_AGE   7
+UMASK           022

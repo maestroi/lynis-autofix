@@ -1,0 +1,36 @@
+# Template — copy and customize for your chain. Not applied by default.
+name: validator-node-example
+description: "Example profile for blockchain validator/RPC nodes. Customize protected_ports and protected_processes for your chain."
+
+protected_ports:
+  - 22
+protected_port_ranges:
+  - start: 9000
+    end: 9001
+    proto: tcp
+  - start: 30303
+    end: 30303
+    proto: both
+
+protected_processes:
+  - lighthouse
+  - geth
+  - erigon
+  - nethermind
+
+protected_services:
+  - lighthouse
+  - geth
+
+sysctl_policy:
+  allow_network_changes: false
+  allow_kernel_changes: false
+  blocked_keys:
+    - net.ipv4.tcp_slow_start_after_idle
+    - kernel.nmi_watchdog
+
+blocked_modules:
+  - auditd-basic
+
+max_risk_level: low
+failure_policy: rollback_failed_and_stop

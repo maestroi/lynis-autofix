@@ -1,0 +1,19 @@
+name: server
+description: "General-purpose hardening baseline for Ubuntu 22.04/24.04"
+
+allowed_modules: []
+blocked_modules: []
+protected_ports: []
+protected_port_ranges: []
+protected_processes: []
+protected_services: []
+
+max_risk_level: high
+require_confirm: []
+
+sysctl_policy:
+  allow_network_changes: true
+  allow_kernel_changes: true
+  blocked_keys: []
+
+failure_policy: rollback_failed_and_stop
