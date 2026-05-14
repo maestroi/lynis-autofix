@@ -7,7 +7,6 @@ import (
 	"io"
 	"os"
 	"path/filepath"
-	"syscall"
 	"time"
 
 	"github.com/maestroi/hardener/internal/model"
@@ -50,10 +49,7 @@ func (s *Store) SnapshotFile(ctx context.Context, runID, moduleID, findingID str
 		OrigMode:    info.Mode(),
 	}
 
-	if stat, ok := info.Sys().(*syscall.Stat_t); ok {
-		entry.OrigUID = int(stat.Uid)
-		entry.OrigGID = int(stat.Gid)
-	}
+	populateOwner(info, &entry)
 
 	return entry, nil
 }
