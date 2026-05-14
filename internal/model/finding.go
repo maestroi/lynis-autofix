@@ -10,9 +10,9 @@ import (
 type Severity int
 
 const (
-	SeverityInfo Severity = iota // Lynis suggestion
-	SeverityWarning              // Lynis warning
-	SeverityCritical             // Reserved for future scanners
+	SeverityInfo     Severity = iota // Lynis suggestion
+	SeverityWarning                  // Lynis warning
+	SeverityCritical                 // Reserved for future scanners
 )
 
 func (s Severity) String() string {

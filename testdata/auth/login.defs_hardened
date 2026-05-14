@@ -1,0 +1,5 @@
+# /etc/login.defs — hardened
+PASS_MAX_DAYS   90
+PASS_MIN_DAYS   1
+PASS_WARN_AGE   14
+UMASK           027

@@ -38,6 +38,12 @@ type Profile struct {
 	RequireConfirm      []string      `yaml:"require_confirm"       json:"require_confirm,omitempty"`
 	SysctlPolicy        SysctlPolicy  `yaml:"sysctl_policy"         json:"sysctl_policy"`
 	FailurePolicy       FailurePolicy `yaml:"failure_policy"        json:"failure_policy"`
+	// RemoteSyslogServer is the host:port (e.g. "10.0.0.1:514") for remote syslog.
+	// Required for LOGG-2190 remediation. Leave empty to skip.
+	RemoteSyslogServer string `yaml:"remote_syslog_server" json:"remote_syslog_server"`
+	// GrubPasswordHash is the grub2-mkpasswd-pbkdf2 hash for BOOT-5122 remediation.
+	// Leave empty to skip. Generate with: grub-mkpasswd-pbkdf2
+	GrubPasswordHash string `yaml:"grub_password_hash" json:"grub_password_hash"`
 }
 
 // IsModuleBlocked returns true if the module ID appears in BlockedModules.

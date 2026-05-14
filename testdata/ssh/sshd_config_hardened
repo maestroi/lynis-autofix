@@ -1,0 +1,28 @@
+# testdata/ssh/sshd_config_hardened
+# Expected result after SSH-7408 remediation
+Include /etc/ssh/sshd_config.d/*.conf
+
+#Port 22
+#AddressFamily any
+#ListenAddress 0.0.0.0
+
+#HostKey /etc/ssh/ssh_host_rsa_key
+
+# Authentication:
+LoginGraceTime 60
+PermitRootLogin no
+#StrictModes yes
+MaxAuthTries 4
+
+#PubkeyAuthentication yes
+
+PasswordAuthentication yes
+#PermitEmptyPasswords no
+
+X11Forwarding no
+
+PrintMotd no
+
+AcceptEnv LANG LC_*
+
+Subsystem       sftp    /usr/lib/openssh/sftp-server

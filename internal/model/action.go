@@ -13,11 +13,11 @@ import (
 type RiskLevel int
 
 const (
-	RiskNone RiskLevel = iota
-	RiskLow             // config tweak, no service restart
-	RiskMedium          // service restart or sysctl change
-	RiskHigh            // firewall rule or kernel param
-	RiskCritical        // requires --confirm-dangerous
+	RiskNone     RiskLevel = iota
+	RiskLow                // config tweak, no service restart
+	RiskMedium             // service restart or sysctl change
+	RiskHigh               // firewall rule or kernel param
+	RiskCritical           // requires --confirm-dangerous
 )
 
 func (r RiskLevel) String() string {

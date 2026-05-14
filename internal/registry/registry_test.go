@@ -83,7 +83,58 @@ func TestRegistry_All_NoDuplicates(t *testing.T) {
 	assert.Len(t, all, 1) // one module, two findings — All() returns distinct modules
 }
 
-func TestRegistry_Default_IsEmpty(t *testing.T) {
+func TestRegistry_Default_HasBundledModules(t *testing.T) {
 	r := registry.Default()
-	assert.Empty(t, r.All()) // no modules in Milestone 1
+	all := r.All()
+	require.NotEmpty(t, all)
+	_, ok := r.Lookup("SSH-7408")
+	assert.True(t, ok)
+}
+
+func TestRegistry_Default_ContainsGroup1Modules(t *testing.T) {
+	r := registry.Default()
+	findingIDs := []string{
+		"PKGS-7394",
+		"PKGS-7370",
+		"BANN-7126",
+		"BANN-7130",
+		"LOGG-2154",
+		"ACCT-9622",
+		"ACCT-9626",
+	}
+	for _, id := range findingIDs {
+		mod, ok := r.Lookup(id)
+		assert.True(t, ok, "finding %s should have a registered module", id)
+		assert.NotNil(t, mod, "module for %s must not be nil", id)
+	}
+}
+
+func TestRegistry_Default_ContainsModulesForCurrentSkippedFindings(t *testing.T) {
+	r := registry.Default()
+	findingIDs := []string{
+		"DEB-0280",
+		"DEB-0810",
+		"DEB-0811",
+		"DEB-0880",
+		"BOOT-5122",
+		"BOOT-5264",
+		"KRNL-5830",
+		"FILE-6310",
+		"USB-1000",
+		"NAME-4028",
+		"NETW-3200",
+		"FIRE-4513",
+		"LOGG-2190",
+		"ACCT-9628",
+		"FINT-4350",
+		"TOOL-5002",
+		"FILE-7524",
+		"HRDN-7222",
+		"HRDN-7230",
+	}
+	for _, id := range findingIDs {
+		mod, ok := r.Lookup(id)
+		assert.True(t, ok, "finding %s should have a registered module", id)
+		assert.NotNil(t, mod, "module for %s must not be nil", id)
+	}
 }

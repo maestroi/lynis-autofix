@@ -15,7 +15,7 @@ import (
 
 // TerminalReporter renders human-readable colored output to a writer.
 type TerminalReporter struct {
-	w       io.Writer
+	w        io.Writer
 	useColor bool
 }
 

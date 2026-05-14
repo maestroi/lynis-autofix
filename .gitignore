@@ -1,0 +1,7 @@
+# Local overrides for remote E2E execution
+scripts/e2e-remote.env.local
+scripts/run_e2e_remote_ssh.local.sh
+
+# Local overrides for remote production-style runs
+scripts/prod-remote.env.local
+scripts/run_prod_remote_ssh.local.sh
