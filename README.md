@@ -1,9 +1,10 @@
-# hardener
+# hardener (beta)
 
-`hardener` is a Go CLI that reads Lynis findings and plans/applies safe remediations with rollback metadata.
+`hardener` is a Go CLI (currently in beta) that reads Lynis findings and plans/applies safe remediations with rollback metadata.
 
 ## Current status
 
+- Beta release phase (APIs/behavior can still change)
 - Implemented and usable: `plan`, `apply`, `rollback`
 - Stub commands (not implemented yet): `audit`, `report`
 
@@ -28,10 +29,10 @@ If this repository is hosted on GitHub, you can install with:
 curl -fsSL https://raw.githubusercontent.com/maestroi/lynis-autofix/main/scripts/install.sh | bash
 ```
 
-Install a specific version:
+Install a specific beta version (recommended during beta):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/maestroi/lynis-autofix/main/scripts/install.sh | HARDENER_INSTALL_VERSION=v0.1.0 bash
+curl -fsSL https://raw.githubusercontent.com/maestroi/lynis-autofix/main/scripts/install.sh | HARDENER_INSTALL_VERSION=v0.1.0-beta.1 bash
 ```
 
 Optional installer variables:

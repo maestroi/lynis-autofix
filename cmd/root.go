@@ -17,8 +17,8 @@ var (
 
 var rootCmd = &cobra.Command{
 	Use:   "hardener",
-	Short: "Linux hardening automation tool",
-	Long:  "A safe, idempotent, rollback-capable Linux hardening tool powered by Lynis findings.",
+	Short: "Linux hardening automation tool (beta)",
+	Long:  "A safe, idempotent, rollback-capable Linux hardening tool (beta) powered by Lynis findings.",
 }
 
 // Execute runs the root command. Called from main().
