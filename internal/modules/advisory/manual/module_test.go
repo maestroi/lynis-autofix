@@ -48,4 +48,3 @@ func TestManual_Apply_ReturnsSkipped(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, model.ActionSkipped, applied.Status)
 }
-

@@ -16,8 +16,8 @@ type complianceReport struct {
 	CurrentScore  int      `json:"current_score"`
 	Fixed         []string `json:"fixed"`      // finding IDs that were applicable, now absent
 	StillOpen     []string `json:"still_open"` // finding IDs that were applicable, still present
-	Skipped       []string `json:"skipped"`   // finding IDs that were not applicable in stored plan
-	New           []string `json:"new"`       // finding IDs in current scan not in stored plan
+	Skipped       []string `json:"skipped"`    // finding IDs that were not applicable in stored plan
+	New           []string `json:"new"`        // finding IDs in current scan not in stored plan
 	LiveAvailable bool     `json:"live_available"`
 	LiveWarn      string   `json:"live_warn,omitempty"`
 }

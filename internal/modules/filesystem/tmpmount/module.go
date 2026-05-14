@@ -57,10 +57,10 @@ func (m *Module) Plan(ctx context.Context, finding *model.Finding, _ *model.Prof
 	}
 
 	return &model.PlannedAction{
-		FindingID:      finding.ID,
-		ModuleID:       meta.ID,
-		Title:          "Add nodev/nosuid/noexec to /tmp fstab entry",
-		Description:    fmt.Sprintf("Modify %s to add security mount options to /tmp", FstabPath),
+		FindingID:   finding.ID,
+		ModuleID:    meta.ID,
+		Title:       "Add nodev/nosuid/noexec to /tmp fstab entry",
+		Description: fmt.Sprintf("Modify %s to add security mount options to /tmp", FstabPath),
 		Steps: []string{
 			fmt.Sprintf("backup and rewrite %s with nodev,nosuid,noexec on /tmp", FstabPath),
 		},

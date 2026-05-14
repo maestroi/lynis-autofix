@@ -124,8 +124,8 @@ func (f *FakeExecutor) SetFileMode(_ context.Context, path string, mode os.FileM
 	f.SetFileModeRecords[path] = mode
 	return nil
 }
-func (f *FakeExecutor) SetOwner(_ context.Context, _ string, _, _ int) error         { return nil }
-func (f *FakeExecutor) SetSysctl(_ context.Context, _, _ string) error               { return nil }
+func (f *FakeExecutor) SetOwner(_ context.Context, _ string, _, _ int) error { return nil }
+func (f *FakeExecutor) SetSysctl(_ context.Context, _, _ string) error       { return nil }
 
 func (f *FakeExecutor) EnableService(_ context.Context, name string) error {
 	f.EnabledServices = append(f.EnabledServices, name)

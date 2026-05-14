@@ -5,8 +5,7 @@
 ## Current status
 
 - Beta release phase (APIs/behavior can still change)
-- Implemented and usable: `plan`, `apply`, `rollback`
-- Stub commands (not implemented yet): `audit`, `report`
+- Implemented and usable: `audit`, `plan`, `apply`, `report`, `rollback`
 
 ## Prerequisites
 
@@ -105,6 +104,30 @@ Dry-run apply (executor simulation, no mutations):
 sudo ./hardener apply --dry-run
 ```
 
+Run an audit from Lynis and print findings + score:
+
+```bash
+sudo ./hardener audit
+```
+
+Audit from a specific report file:
+
+```bash
+sudo ./hardener audit --report-path /var/log/lynis-report.dat
+```
+
+Show run history:
+
+```bash
+sudo ./hardener report
+```
+
+Drill into one run with live compliance comparison:
+
+```bash
+sudo ./hardener report --run-id <RUN_ID>
+```
+
 Rollback:
 
 ```bash
@@ -169,12 +192,35 @@ sudo ./hardener plan --dry-run --profile docker-host
 ./hardener --help
 ./hardener plan --help
 ./hardener apply --help
+./hardener audit --help
+./hardener report --help
 ./hardener rollback --help
+```
+
+## Automated releases
+
+This repo includes GitHub Actions release automation:
+
+- CI workflow: `.github/workflows/ci.yml`
+- Release workflow: `.github/workflows/release.yml` (publishes archives on tags matching `v*`)
+
+Create a beta release:
+
+```bash
+git tag v0.1.0-beta.1
+git push origin v0.1.0-beta.1
+```
+
+Create a stable release:
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
 ```
 
 ## Notes and limitations
 
 - `plan --fresh` currently warns and reuses the existing report.
 - `apply --audit` flag exists but is not implemented yet.
-- `audit` and `report` commands are placeholders.
+- `report --run-id` performs a live Lynis run for comparison; if Lynis is unavailable, it falls back to stored plan-only reporting.
 - `--profile` currently resolves bundled profile names.

@@ -1,0 +1,81 @@
+name: Release
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Verify and test
+        run: |
+          set -euo pipefail
+          go mod verify
+          go test ./... -count=1
+
+      - name: Build release archives
+        env:
+          VERSION: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+
+          targets=(
+            "linux amd64"
+            "linux arm64"
+            "darwin amd64"
+            "darwin arm64"
+            "windows amd64"
+            "windows arm64"
+          )
+
+          for target in "${targets[@]}"; do
+            GOOS="$(echo "${target}" | awk '{print $1}')"
+            GOARCH="$(echo "${target}" | awk '{print $2}')"
+
+            BIN_NAME="hardener"
+            if [ "${GOOS}" = "windows" ]; then
+              BIN_NAME="hardener.exe"
+            fi
+
+            WORK_DIR="dist/work_${GOOS}_${GOARCH}"
+            mkdir -p "${WORK_DIR}"
+
+            CGO_ENABLED=0 GOOS="${GOOS}" GOARCH="${GOARCH}" \
+              go build -trimpath -ldflags "-s -w" -o "${WORK_DIR}/${BIN_NAME}" .
+
+            ARCHIVE="dist/hardener_${VERSION}_${GOOS}_${GOARCH}.tar.gz"
+            tar -C "${WORK_DIR}" -czf "${ARCHIVE}" "${BIN_NAME}"
+          done
+
+          (cd dist && sha256sum ./*.tar.gz > checksums.txt)
+
+      - name: Upload release assets
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          prerelease: ${{ contains(github.ref_name, '-') }}
+          files: |
+            dist/*.tar.gz
+            dist/checksums.txt

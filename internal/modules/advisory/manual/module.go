@@ -62,4 +62,3 @@ func (m *Module) Validate(_ context.Context, _ *model.PlannedAction, _ executor.
 func (m *Module) Rollback(_ context.Context, _ *model.RollbackEntry, _ executor.Executor) error {
 	return nil
 }
-
