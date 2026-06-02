@@ -72,7 +72,7 @@ jobs:
           (cd dist && sha256sum ./*.tar.gz > checksums.txt)
 
       - name: Upload release assets
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           generate_release_notes: true
           prerelease: ${{ contains(github.ref_name, '-') }}
